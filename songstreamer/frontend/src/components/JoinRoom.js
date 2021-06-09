@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import { Button, Grid, Typography, TextField } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Room from './Room'
 
-const JoinRoom = () => {
+const JoinRoom = (props) => {
   const [roomCode, setRoomCode] = useState("");
   const [error, setError] = useState();
 
   const handleTextFieldChange = (e) => {
     setRoomCode(e.target.value);
   };
+
+  const roomButtonPressed = () => {
+    console.log('clicked!')
+
+    // if (roomCode !== "") {
+    //   props.history.push(`/room/${roomCode}`);
+    // } else {
+    //   setError({ error: "Room not found." });
+    // }
+  }
 
   return (
     <Grid container spacing={1} align="center">
@@ -29,7 +40,7 @@ const JoinRoom = () => {
         />
       </Grid>
       <Grid item xs={12}>
-        <Button variant="contained" color="primary" onClick>
+        <Button variant="contained" color="primary" onClick={roomButtonPressed}>
           Enter Room
         </Button>
       </Grid>
