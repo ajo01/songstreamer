@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 
 const Room = (props) => {
-    const [votesToSkip, setVotesToSkip] = useState(2)
-    const [guestCanPause, setGuestCanPause] = useState(false)
-    const [isHost, setIsHost] = useState(false)
 
 
 return (
     <div>
-        <h3>{props.roomCode}</h3>
-        <p>Votes: {votesToSkip}</p>
-        <p>Guest Can Pause: {guestCanPause.toString()}</p>
-        <p>Host: {isHost.toString()}</p>
+        <h3>Room Code: {props.data.roomCode}</h3>
+        <p>Votes: {props.data.votesToSkip}</p>
+        <p>Guest Can Pause: {props.data.guestCanPause.toString()}</p>
+        <p>Host: {props.data.isHost.toString()}</p>
     </div>
 )
 }
