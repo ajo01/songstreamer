@@ -13,7 +13,7 @@ const Home = () => {
         <Router>
           <Switch>
               <Route exact path="/">
-                  <p>Home page</p>
+                  <div>Home Page</div>
               </Route>
               <Route path="/join" component={JoinRoom}/>
               <Route path="/create" component={CreateRoom}/>

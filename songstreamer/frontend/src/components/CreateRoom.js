@@ -13,7 +13,28 @@ import {
 import { Link } from "react-router-dom";
 
 const CreateRoom = () => {
-  const defaultVotes = 2;
+  const defaultVotes = '2';
+  const [votes, setVotes] = useState(defaultVotes)
+  const [guestCanPause, setGuestCanPause] = useState(true)
+
+  const handleVotesChange = (e) => {
+  //   const roomData = {
+  //     ...enteredVotes,
+  //     id: Math.random().toString()
+  // }
+    setVotes(e.target.value)
+    console.log(votes)
+  }
+
+  const handleGuestCanPause = (e) => {
+    setGuestCanPause(e.target.value)
+    console.log(guestCanPause)
+  }
+
+  const handleCreateRoom = (e) => {
+    setVotes(defaultVotes)
+    setGuestCanPause(true)
+  }
 
   return (
     <Grid container spacing={1}>
@@ -22,15 +43,21 @@ const CreateRoom = () => {
               Create A Room
             </Typography>
           </Grid>
+
           <Grid item xs={12} align="center">
             <FormControl component="fieldset">
-              <FormHelperText>
-                <div align="center">Guest Control of Playback State</div>
-              </FormHelperText>
+              
+                
+                <FormHelperText>
+                <div align="center">
+                  Guest Control of Playback State
+                  </div></FormHelperText>
+
+
               <RadioGroup
                 row
                 defaultValue="true"
-                // onChange={this.handleGuestCanPauseChange}
+                onChange={handleGuestCanPause}
               >
                 <FormControlLabel
                   value="true"
@@ -47,37 +74,43 @@ const CreateRoom = () => {
               </RadioGroup>
             </FormControl>
           </Grid>
+
           <Grid item xs={12} align="center">
             <FormControl>
               <TextField
                 required={true}
                 type="number"
-                // onChange={this.handleVotesChange}
-                // defaultValue={this.defaultVotes}
+                onChange={handleVotesChange}
+                defaultValue={defaultVotes}
                 inputProps={{
                   min: 1,
                   style: { textAlign: "center" },
                 }}
               />
-              <FormHelperText>
-                <div align="center">Votes Required To Skip Song</div>
-              </FormHelperText>
+             
+                <div align="center"> 
+                <FormHelperText>Votes Required To Skip Song</FormHelperText>
+                </div>
+              
             </FormControl>
           </Grid>
+
           <Grid item xs={12} align="center">
             <Button
               color="primary"
               variant="contained"
-            //   onClick={this.handleRoomButtonPressed}
+              onClick={handleCreateRoom}
             >
               Create A Room
             </Button>
           </Grid>
+
           <Grid item xs={12} align="center">
             <Button color="secondary" variant="contained" to="/" component={Link}>
               Back
             </Button>
           </Grid>
+
         </Grid>
   );
 };
