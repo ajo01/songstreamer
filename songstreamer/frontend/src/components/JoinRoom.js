@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Grid, Typography, TextField } from "@material-ui/core";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Room from './Room'
+import {Link } from "react-router-dom";
+
 
 const JoinRoom = (props) => {
   const [roomCode, setRoomCode] = useState("");
