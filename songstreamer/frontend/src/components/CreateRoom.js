@@ -55,9 +55,11 @@ const CreateRoom = (props) => {
 
         <Grid item xs={12} align="center">
           <FormControl component="fieldset">
+          <FormHelperText>
             <div align="center">
-              <FormHelperText>Guest Control of Playback State</FormHelperText>
+              Guest Control of Playback State
             </div>
+            </FormHelperText>
 
             <RadioGroup row defaultValue="true" onChange={handleGuestCanPause}>
               <FormControlLabel
