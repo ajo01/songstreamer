@@ -10,9 +10,9 @@ import {
   RadioGroup,
   FormControlLabel,
 } from "@material-ui/core";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { generateRandomCode } from "../api/index";
-import Room from "./Room";
+
 
 const CreateRoom = (props) => {
   const defaultVotes = "2";
@@ -44,7 +44,7 @@ const CreateRoom = (props) => {
     console.log(newRoomData);
   };
 
-  const renderCreateRoom = () => {
+
     return (
       <Grid container spacing={1}>
         <Grid item xs={12} align="center">
@@ -113,22 +113,7 @@ const CreateRoom = (props) => {
           </Button>
         </Grid>
       </Grid>
-    );
-  };
-
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/create">
-          {renderCreateRoom()}
-        </Route>
-        <Route
-          path="/room"
-          render={() => <Room data={roomData} />}
-        />
-      </Switch>
-    </Router>
-  );
+    )
 };
 
 export default CreateRoom;
