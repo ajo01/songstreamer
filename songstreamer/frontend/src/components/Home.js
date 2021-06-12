@@ -4,6 +4,7 @@ import { Button, Grid, Typography, ButtonGroup } from "@material-ui/core";
 
 import CreateRoom from "./CreateRoom";
 import JoinRoom from "./JoinRoom";
+import Room from './Room'
 
 const Home = () => {
 // const onSaveRoomData
@@ -38,6 +39,9 @@ const Home = () => {
         </Route>
         <Route path="/join" component={JoinRoom} />
         <Route path="/create" component={CreateRoom} />
+
+        {/* here for testing purposes. remove later */}
+      <Route path="/room" component={Room}></Route>
       </Switch>
     </Router>
   );
