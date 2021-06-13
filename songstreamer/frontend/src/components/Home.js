@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Button, Grid, Typography, ButtonGroup } from "@material-ui/core";
 
@@ -7,7 +7,13 @@ import JoinRoom from "./JoinRoom";
 import Room from './Room'
 
 const Home = () => {
+  const [roomCode, setRoomCode] = useState('ABCDE')
+
 // const onSaveRoomData
+
+const clearRoomCode = () => {
+  setRoomCode('')
+}
 
   const renderHomePage = () => {
     return (
@@ -40,8 +46,12 @@ const Home = () => {
         <Route path="/join" component={JoinRoom} />
         <Route path="/create" component={CreateRoom} />
 
-        {/* here for testing purposes. remove later */}
-      <Route path="/room" component={Room}></Route>
+        <Route
+            path="/room/:roomCode"
+            render={(props) => {
+              return <Room {...props} leaveRoomCallback={clearRoomCode} />;
+            }}
+          />
       </Switch>
     </Router>
   );
